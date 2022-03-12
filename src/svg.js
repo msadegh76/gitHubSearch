@@ -27,7 +27,6 @@ export const XIcon = () => {
 			x="0px"
 			y="0px"
 			viewBox="0 0 460.775 460.775"
-			// style="enable-background:new 0 0 460.775 460.775;"
 		>
 			<path
 				fill="red"

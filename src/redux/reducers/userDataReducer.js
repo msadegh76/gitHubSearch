@@ -1,22 +1,38 @@
-// import { SetUserData, GetUserData } from "../actions/ActionTypes";
-
 const initialState = {
-	user: [],
+	userList: [],
+	loading: false,
+	error: null,
 };
 function userDataReducer(state = initialState, action) {
 	switch (action.type) {
-		case "SET_USER_DATA": {
+		case "SET_USER_DATA_REQUEST": {
 			return {
 				...state,
-				user: action.payload,
+				loading: action.loading,
 			};
 		}
-		// case GetUserData: {
-		// 	return {
-		// 		...state,
-		// 		user: action.payload,
-		// 	};
-		// }
+		case "SET_USER_DATA_FAILURE": {
+			return {
+				...state,
+				error: action.error,
+				loading: action.loading,
+				userList: action.payload,
+			};
+		}
+		case "SET_USER_DATA_SUCCESS": {
+			return {
+				...state,
+				userList: action.payload,
+
+				loading: action.loading,
+			};
+		}
+		case "SET_USER_DATA_CLEAR": {
+			return {
+				...state,
+				userList: action.payload,
+			};
+		}
 		default: {
 			return state;
 		}

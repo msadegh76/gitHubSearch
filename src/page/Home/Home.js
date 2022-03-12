@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
-import userListService from "../../services/userListService";
 import UserCard from "../../components/UserCard/UserCard";
 import { useDispatch, useSelector } from "react-redux";
-import { connect } from "react-redux";
-import { addUser } from "../../redux/actions/ActionTypes";
+import { addUser, userClear } from "../../redux/actions/Actions";
 import { LoadingIcon } from "../../svg";
 
 function Home() {
-	const globalUsers = useSelector((state) => state.user);
-	const [users, setUsers] = useState(globalUsers);
+	const users = useSelector((state) => state.userList);
+	const loading = useSelector((state) => state.loading);
 	const [search, setSearch] = useState();
 	const [noData, setNoData] = useState(false);
-	const [loading, setLoading] = useState(false);
 	const dispatch = useDispatch();
 
 	let timer;
@@ -21,18 +18,14 @@ function Home() {
 		setSearch(e.target.value);
 	};
 	const handleClear = () => {
-		setUsers([]);
+		dispatch(userClear());
 	};
 	const handleSearchSubmit = async (param) => {
 		if (!param) {
 			setNoData(true);
 			timer = setTimeout(() => setNoData(false), 2000);
 		} else {
-			setLoading(true);
-			let response = await userListService(param);
-			setUsers(response.items);
-			setLoading(false);
-			dispatch(addUser(response.items));
+			dispatch(addUser(param));
 		}
 	};
 
@@ -89,12 +82,5 @@ function Home() {
 		</div>
 	);
 }
-// const mapStateToProps = (state) => ({ data: state.data });
-// const mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		addUser: () => dispatch(addUser),
-// 	};
-// };
 
 export default Home;
-// connect(mapStateToProps, mapDispatchToProps)(Home);

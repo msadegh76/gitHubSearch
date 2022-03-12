@@ -3,8 +3,6 @@ import axios from "axios";
 const baseURL = "https://api.github.com/users/";
 
 export default async function userReposService(user) {
-	// const [userList, setUserList] = useState();
-	// console.log(userList);
 	return axios
 		.get(
 			baseURL +

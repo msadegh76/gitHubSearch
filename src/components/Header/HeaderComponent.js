@@ -14,12 +14,7 @@ export default function HeaderComponent() {
 			</div>
 			<div className="header-right-section">
 				<Link to={"/"}>
-					<p
-						className="header-github-p"
-						// onClick={() => navigate("/")}
-					>
-						Home
-					</p>
+					<p className="header-github-p">Home</p>
 				</Link>
 				<Link to={"/about"}>
 					<p className="header-github-p">About</p>

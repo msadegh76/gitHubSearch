@@ -1,6 +1,5 @@
 export const SET_USER_DATA = "SET_USER_DATA";
-// export const GET_USER_DATA = "GET_USER_DATA";
-
-export const addUser = (payload) => {
-	return { type: SET_USER_DATA, payload };
-};
+export const SET_USER_DATA_REQUEST = "SET_USER_DATA_REQUEST";
+export const SET_USER_DATA_FAILURE = "SET_USER_DATA_FAILURE";
+export const SET_USER_DATA_SUCCESS = "SET_USER_DATA_SUCCESS";
+export const SET_USER_DATA_CLEAR = "SET_USER_DATA_CLEAR";
