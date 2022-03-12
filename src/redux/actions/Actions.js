@@ -19,7 +19,7 @@ export const addUser = (user) => {
 };
 
 export const userRequest = () => {
-	return { type: SET_USER_DATA_REQUEST, loading: true };
+	return { type: SET_USER_DATA_REQUEST, loading: true, error: null };
 };
 
 export const userError = (error) => {
@@ -45,3 +45,6 @@ export const userClear = () => {
 		payload: [],
 	};
 };
+
+//Saving Home Page States in Store
+//handling Data fetch and loading and clearing data from store

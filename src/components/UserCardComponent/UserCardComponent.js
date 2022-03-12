@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./user-card.css";
 
-const UserCard = ({ login: userName, avatar_url }) => {
+const UserCardComponent = ({ login: userName, avatar_url }) => {
 	return (
 		<div className="user-card ">
 			{/* <div className="user-avatar-container"> */}
@@ -14,7 +14,7 @@ const UserCard = ({ login: userName, avatar_url }) => {
 			{/* </div> */}
 			<div className="user-name user-card-item">{userName}</div>
 			<div className="user-more user-card-item">
-				<button className="user-more-button">
+				<button className="user-more-button btn">
 					<Link to={`/user/${userName}`} className="user-link">
 						More
 					</Link>
@@ -23,4 +23,4 @@ const UserCard = ({ login: userName, avatar_url }) => {
 		</div>
 	);
 };
-export default UserCard;
+export default UserCardComponent;

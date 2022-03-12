@@ -6,3 +6,4 @@ const rootReducers = combineReducers({
 });
 
 export default rootReducers;
+//combining all Reducers together  //still have one

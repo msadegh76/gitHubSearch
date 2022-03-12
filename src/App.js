@@ -1,12 +1,14 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 import PageRoutes from "../src/PageRoutes";
 import "./App.css";
+import { ErrorBoundary } from "./Hook/ErrorBoundary";
 
 function App() {
 	return (
 		<>
-			<PageRoutes />
+			<ErrorBoundary FallbackRender={() => <div>error</div>}>
+				<PageRoutes />
+			</ErrorBoundary>
 		</>
 	);
 }

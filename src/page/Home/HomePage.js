@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
-import UserCard from "../../components/UserCard/UserCard";
+import UserCardComponent from "../../components/UserCardComponent/UserCardComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, userClear } from "../../redux/actions/Actions";
-import { LoadingIcon } from "../../svg";
+import Loading from "../UserPage/components/Loading/Loading";
+import ErrorComponent from "../../components/ErrorComponent/ErrorComponent";
+import CustomButtonComponent from "../../components/CustomButtonComponent/CustomButtonComponent";
 
-function Home() {
+function HomePage() {
 	const users = useSelector((state) => state.userList);
 	const loading = useSelector((state) => state.loading);
+	const error = useSelector((state) => state.error);
 	const [search, setSearch] = useState();
 	const [noData, setNoData] = useState(false);
 	const dispatch = useDispatch();
@@ -20,12 +23,12 @@ function Home() {
 	const handleClear = () => {
 		dispatch(userClear());
 	};
-	const handleSearchSubmit = async (param) => {
-		if (!param) {
+	const handleSearchSubmit = async () => {
+		if (!search) {
 			setNoData(true);
 			timer = setTimeout(() => setNoData(false), 2000);
 		} else {
-			dispatch(addUser(param));
+			dispatch(addUser(search));
 		}
 	};
 
@@ -33,12 +36,13 @@ function Home() {
 		<div className="homepage">
 			<div className="home-search-section">
 				{noData && (
-					<div className="home-button-container">
-						<button className="home-button home-button-clear ">
-							Please Enter Something !
-						</button>
-					</div>
+					<CustomButtonComponent
+						text="Please Enter Something !"
+						handleClick={null}
+						customClass="home-button-clear"
+					/>
 				)}
+
 				<div className="home-input-container">
 					<input
 						type="text"
@@ -48,39 +52,29 @@ function Home() {
 					/>
 				</div>
 
-				<div className="home-button-container">
-					<button
-						className="home-button"
-						onClick={() => handleSearchSubmit(search)}
-					>
-						submit
-					</button>
-				</div>
+				<CustomButtonComponent
+					text="submit"
+					customClass=""
+					handleClick={handleSearchSubmit}
+				/>
 				{users.length !== 0 && (
-					<div className="home-button-container">
-						<button
-							className="home-button home-button-clear"
-							onClick={handleClear}
-						>
-							clear
-						</button>
-					</div>
+					<CustomButtonComponent
+						text="clear"
+						customClass="home-button-clear"
+						handleClick={handleClear}
+					/>
 				)}
-				{loading && (
-					<div className="user-loading">
-						<LoadingIcon />
-					</div>
-				)}
+				<Loading loading={loading} />
 			</div>
 			<div className="home-body">
-				{" "}
+				<ErrorComponent error={error} />
 				{users.length !== 0 &&
 					users.map((item) => {
-						return <UserCard key={item.id} {...item} />;
+						return <UserCardComponent key={item.id} {...item} />;
 					})}
 			</div>
 		</div>
 	);
 }
 
-export default Home;
+export default HomePage;

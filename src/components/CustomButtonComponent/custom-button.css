@@ -1,0 +1,21 @@
+.home-button-container {
+	width: 100%;
+	height: 10px;
+	display: flex;
+	place-content: center;
+	padding: 15px 0px;
+}
+.home-button {
+	width: 60%;
+	height: 25px;
+	background-color: var(--dark);
+	color: white;
+	border: none;
+}
+.btn:hover {
+	opacity: 0.8;
+}
+.home-button-clear {
+	background: var(--back-light);
+	color: var(--dark);
+}

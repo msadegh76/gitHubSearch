@@ -8,3 +8,4 @@ const store = createStore(
 );
 
 export default store;
+//creating Store and adding applying middleware to thunk

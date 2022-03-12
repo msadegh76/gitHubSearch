@@ -10,20 +10,6 @@
 	place-content: center;
 	padding: 15px 0px;
 }
-.home-button-container {
-	width: 100%;
-	height: 10px;
-	display: flex;
-	place-content: center;
-	padding: 15px 0px;
-}
-.home-button {
-	width: 60%;
-	height: 25px;
-	background-color: #333;
-	color: white;
-	border: none;
-}
 
 .home-input {
 	width: 60%;
@@ -32,10 +18,7 @@
 .home-search-section {
 	width: 100%;
 }
-.home-button-clear {
-	background: #f4f4f4;
-	color: #333;
-}
+
 .home-body {
 	width: 60%;
 	display: grid;
@@ -44,8 +27,4 @@
 	justify-content: center;
 	gap: 1rem;
 	margin-top: 20px;
-}
-.user-loading {
-	margin-top: 20px;
-	text-align: center;
 }

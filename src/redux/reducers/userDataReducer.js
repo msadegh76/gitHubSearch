@@ -9,6 +9,7 @@ function userDataReducer(state = initialState, action) {
 			return {
 				...state,
 				loading: action.loading,
+				error: action.error,
 			};
 		}
 		case "SET_USER_DATA_FAILURE": {

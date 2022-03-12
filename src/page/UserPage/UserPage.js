@@ -3,7 +3,11 @@ import { Link, useParams } from "react-router-dom";
 import userDetailService from "../../services/userDetailService";
 import userReposService from "../../services/userReposService";
 import "./user-page.css";
-import { XIcon, CheckIcon, LoadingIcon } from "../../svg";
+import { XIcon, CheckIcon } from "../../svg";
+import Loading from "./components/Loading/Loading";
+import UserInfo from "./components/UserInfo/UserInfo";
+import UserGitStatus from "./components/UserGitStatus/UserGitStatus";
+import UserRepos from "./components/UserRepos/UserRepos";
 
 export default function UserPage() {
 	const params = useParams();
@@ -24,59 +28,20 @@ export default function UserPage() {
 	return (
 		<div className="user-page">
 			<div className="user-page-body">
-				{loading && (
-					<div className="user-loading">
-						<LoadingIcon />
-					</div>
-				)}
+				<Loading loading={loading} />
 				<div className="user-page-top">
-					<button className="back-to-search-btn">
+					<button className="back-to-search-btn btn">
 						<Link to="/">Back To Search</Link>
 					</button>
 					<span className="user-hireable">
 						hireable: {userData?.hireable ? <CheckIcon /> : <XIcon />}
 					</span>
 				</div>
-				<div className="user-page-main">
-					<div className="user-info">
-						{userData?.avatar_url && (
-							<img src={userData?.avatar_url} alt="avatar" />
-						)}
-						<span>{userData?.name}</span>
-						<span>{userData?.location}</span>
-					</div>
-					<div className="user-info">
-						{userData?.bio && <span>Bio: {userData?.bio}</span>}
-						{userData?.html_url && (
-							<a
-								href={userData?.html_url}
-								className="badge badge-black user-github"
-							>
-								Visit Github Page
-							</a>
-						)}
-						{userData?.login && <span>Login: {userData?.login}</span>}
-					</div>
-				</div>
-				<div className="user-page-data">
-					<div className="badge badge-red">Followers {userData?.followers}</div>
-					<div className="badge badge-light">
-						Followings{userData?.following}
-					</div>
-					<div className="badge badge-green">
-						Public Gits {userData?.public_gists}
-					</div>
-					<div className="badge badge-black">
-						Public Repos {userData?.public_repos}
-					</div>
-				</div>
+				<UserInfo userData={userData} />
+				<UserGitStatus userData={userData} />
 				{userRepos.length !== 0 &&
 					userRepos.map((item) => {
-						return (
-							<div key={item.id} className="user-page-data user-repos">
-								<a href={item?.url}>{item?.name}</a>
-							</div>
-						);
+						return <UserRepos key={item.id} repo={item} />;
 					})}
 			</div>
 		</div>

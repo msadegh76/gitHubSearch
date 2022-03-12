@@ -10,3 +10,4 @@ export default async function userDetailService(user) {
 		})
 		.catch((error) => console.log("ERROR", error));
 }
+// THIS service will be use to fetch data for user detail page

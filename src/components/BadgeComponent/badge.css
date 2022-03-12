@@ -1,0 +1,28 @@
+.badge {
+	background-color: var(--back-primary);
+	display: inline-block;
+	padding: 0.2rem 0.7rem;
+	text-align: center;
+	margin: 0.3rem;
+	border-radius: 5px;
+	white-space: nowrap;
+	min-width: 50px;
+	font-size: 12px;
+}
+.badge-red {
+	background-color: var(--back-primary);
+	color: white;
+}
+.badge-light {
+	border: 1px solid #ccc;
+	background-color: var(--back-light);
+	color: var(--dark);
+}
+.badge-green {
+	background-color: #28a745;
+	color: white;
+}
+.badge-black {
+	background-color: var(--dark);
+	color: white;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./header.css";
 import { GithubIcon } from "../../svg";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function HeaderComponent() {
 	return (

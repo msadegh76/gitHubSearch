@@ -1,0 +1,9 @@
+.user-page-data {
+	width: 100%;
+	border: 1px dotted #ccc;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(171px, 4fr));
+	padding: 1rem;
+	margin: 0.7rem 0;
+	justify-content: center;
+}
