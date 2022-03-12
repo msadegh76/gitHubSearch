@@ -1,0 +1,100 @@
+.user-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+.user-page-body {
+	width: 60%;
+	align-self: center;
+}
+.user-page-top {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 15px;
+}
+.user-page-main {
+	height: 200px;
+	width: 100%;
+	border: 1px dotted #ccc;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+.user-page-data {
+	border: 1px dotted #ccc;
+	display: flex;
+	flex-direction: row;
+	padding: 1rem;
+	margin: 0.7rem 0;
+	justify-content: center;
+}
+.badge {
+	background-color: red;
+	display: inline-block;
+	padding: 0.2rem 0.7rem;
+	text-align: center;
+	margin: 0.3rem;
+	border-radius: 5px;
+	white-space: nowrap;
+	min-width: 50px;
+	font-size: 12px;
+}
+.badge-red {
+	background-color: #dc3545;
+	color: white;
+}
+.badge-light {
+	border: 1px solid #ccc;
+	background-color: #f4f4f4;
+	color: #333;
+}
+.badge-green {
+	background-color: #28a745;
+	color: white;
+}
+.badge-black {
+	background-color: #333;
+	color: white;
+}
+
+.back-to-search-btn {
+	width: 104px;
+	height: 25px;
+	font-size: 10px;
+	color: #333;
+	background: #f4f4f4;
+	border: none;
+	margin: 0px 10px;
+}
+.back-to-search-btn > a {
+	font-size: 10px;
+	color: #333;
+}
+
+.user-info > img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
+.user-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.user-github {
+	border-radius: unset;
+	font-size: 1rem;
+	padding: 10px;
+}
+.user-repos {
+	padding: 10px;
+	color: red;
+	font-weight: bold;
+	justify-content: flex-start;
+}
+.user-repos > a {
+	color: red;
+}
